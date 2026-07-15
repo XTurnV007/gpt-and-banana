@@ -1340,44 +1340,14 @@ export default function SettingsModal() {
 
               {/* 5. API Key */}
               <div className="block">
-                <span className="mb-1.5 block text-sm text-gray-600 dark:text-gray-300">API Key</span>
-                <div className="flex flex-col gap-2 sm:flex-row">
-                  <div className="relative min-w-0 flex-1">
-                    <input
-                      value={activeProfile.apiKey}
-                      onChange={(e) => updateActiveProfile({ apiKey: e.target.value })}
-                      onBlur={(e) => commitActiveProfilePatch({ apiKey: e.target.value })}
-                      type={showApiKey ? 'text' : 'password'}
-                      placeholder={activeProfile.provider === 'fal' ? 'FAL_KEY' : activeProfile.provider === 'nano-banana' ? 'Nano Banana API Key' : 'sk-...'}
-                      className="w-full rounded-xl border border-gray-200/70 bg-white/60 px-3 py-2.5 pr-10 text-sm text-gray-700 outline-none transition focus:border-blue-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:text-gray-200 dark:focus:border-blue-500/50"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowApiKey((v) => !v)}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
-                      tabIndex={-1}
-                    >
-                      {showApiKey ? (
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                          <circle cx="12" cy="12" r="3" />
-                        </svg>
-                      ) : (
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
-                          <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
-                          <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
-                          <line x1="1" y1="1" x2="23" y2="23" />
-                        </svg>
-                      )}
-                    </button>
-                  </div>
-                  <div className="grid shrink-0 grid-cols-1 gap-2 sm:grid-cols-2">
+                <div className="mb-1.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+                  <span className="text-sm text-gray-600 dark:text-gray-300">API Key</span>
+                  <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1 text-xs font-medium">
                     <a
                       href={API_KEY_REGISTRATION_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center whitespace-nowrap rounded-xl bg-blue-500 px-3 py-2.5 text-sm font-medium text-white transition hover:bg-blue-600 active:scale-[0.98]"
+                      className="text-blue-500 transition hover:text-blue-600 hover:underline hover:underline-offset-2 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                       没有 API KEY，前往获取
                     </a>
@@ -1385,11 +1355,41 @@ export default function SettingsModal() {
                       href={API_KEY_GUIDE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center whitespace-nowrap rounded-xl border border-blue-200 bg-blue-50 px-3 py-2.5 text-sm font-medium text-blue-600 transition hover:border-blue-300 hover:bg-blue-100 active:scale-[0.98] dark:border-blue-400/20 dark:bg-blue-500/10 dark:text-blue-300 dark:hover:bg-blue-500/15"
+                      className="text-blue-500 transition hover:text-blue-600 hover:underline hover:underline-offset-2 dark:text-blue-400 dark:hover:text-blue-300"
                     >
                       获取 API KEY 教程
                     </a>
                   </div>
+                </div>
+                <div className="relative">
+                  <input
+                    value={activeProfile.apiKey}
+                    onChange={(e) => updateActiveProfile({ apiKey: e.target.value })}
+                    onBlur={(e) => commitActiveProfilePatch({ apiKey: e.target.value })}
+                    type={showApiKey ? 'text' : 'password'}
+                    placeholder={activeProfile.provider === 'fal' ? 'FAL_KEY' : activeProfile.provider === 'nano-banana' ? 'Nano Banana API Key' : 'sk-...'}
+                    className="w-full rounded-xl border border-gray-200/70 bg-white/60 px-3 py-2.5 pr-10 text-sm text-gray-700 outline-none transition focus:border-blue-300 dark:border-white/[0.08] dark:bg-white/[0.03] dark:text-gray-200 dark:focus:border-blue-500/50"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowApiKey((v) => !v)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                    tabIndex={-1}
+                  >
+                    {showApiKey ? (
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>
+                    ) : (
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                        <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                        <path d="M14.12 14.12a3 3 0 1 1-4.24-4.24" />
+                        <line x1="1" y1="1" x2="23" y2="23" />
+                      </svg>
+                    )}
+                  </button>
                 </div>
                 <div data-selectable-text className="mt-1.5 text-xs text-gray-500 dark:text-gray-500">
                   支持通过查询参数覆盖：<code className="bg-gray-100 dark:bg-white/[0.06] px-1 py-0.5 rounded">?apiKey=</code>
