@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom'
 import { normalizeBaseUrl } from '../lib/api'
 import { hasActiveDataOperations } from '../lib/dataOperations'
 import { isApiProxyAvailable, isApiProxyLocked, readClientDevProxyConfig } from '../lib/devProxy'
-import { API_KEY_GUIDE_URL, API_KEY_REGISTRATION_URL } from '../lib/apiKeyGuide'
+import { API_KEY_GUIDE_URL } from '../lib/apiKeyGuide'
 import { useStore, exportData, importData, clearData, type SettingsTab } from '../store'
 import {
   createDefaultOpenAIProfile,
@@ -1343,14 +1343,6 @@ export default function SettingsModal() {
                 <div className="mb-1.5 flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
                   <span className="text-sm text-gray-600 dark:text-gray-300">API Key</span>
                   <div className="flex flex-wrap items-center justify-end gap-x-3 gap-y-1 text-xs font-medium">
-                    <a
-                      href={API_KEY_REGISTRATION_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 transition hover:text-blue-600 hover:underline hover:underline-offset-2 dark:text-blue-400 dark:hover:text-blue-300"
-                    >
-                      没有 API KEY，前往获取
-                    </a>
                     <a
                       href={API_KEY_GUIDE_URL}
                       target="_blank"
