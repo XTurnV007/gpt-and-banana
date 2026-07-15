@@ -2,6 +2,8 @@ import 'core-js/actual/array/at'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
+import ApiKeyGuidePage from './components/ApiKeyGuidePage'
+import { isApiKeyGuidePage } from './lib/apiKeyGuide'
 import 'streamdown/styles.css'
 import 'katex/dist/katex.min.css'
 import './index.css'
@@ -25,6 +27,6 @@ if ('serviceWorker' in navigator) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    {isApiKeyGuidePage(window.location.search) ? <ApiKeyGuidePage /> : <App />}
   </StrictMode>,
 )

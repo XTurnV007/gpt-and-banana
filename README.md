@@ -44,7 +44,7 @@ npm run preview
 | 名称 | `image2`（名称可自定义） |
 | 状态 | 启用 |
 | 智能路由 | 手动 |
-| 分组 | 同时选择 `Codex专属` 和 `default` |
+| 分组 | 同时选择 `Codex专属`、`default` 和 `官转` |
 | 可用模型 | 无限制，或至少允许 `gpt-image-2` |
 
 创建后立即复制生成的 `sk-...` 密钥。控制台通常只会完整展示一次，请妥善保存。
@@ -69,7 +69,7 @@ npm run preview
 | 名称 | `banana`（名称可自定义） |
 | 状态 | 启用 |
 | 智能路由 | 手动 |
-| 分组 | 同时选择 `特价banana` 和 `优质gemini` |
+| 分组 | 同时选择 `特价banana`、`优质gemini` 和 `官转gemini` |
 | 可用模型 | 无限制，或至少允许 `gemini-3.1-flash-image-preview` |
 
 创建后复制这枚令牌。回到本项目“设置 → API 配置”，切换到默认的 `nano-banana-2` 配置并填写：
